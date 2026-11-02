@@ -18,6 +18,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 os.environ.setdefault("HF_XET_HIGH_PERFORMANCE", "1")
 os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
+# Don't keep a second copy of downloaded chunks in ~/.cache (that lives on the small
+# container disk and is useless here because every file is downloaded once).
+os.environ.setdefault("HF_XET_CHUNK_CACHE_SIZE_BYTES", "0")
 
 from huggingface_hub import HfApi, hf_hub_download  # noqa: E402
 
@@ -78,6 +81,29 @@ def main() -> int:
     print(f"==> Checking {len(entries)} model files"
           + (f" (groups: {', '.join(groups)})" if groups else " (all groups)"))
     api = HfApi()
+
+    # Disk space check before starting, so we fail with a clear message instead of
+    # half-finished downloads.
+    missing = 0
+    for e in entries:
+        want = expected_size(api, e) or 0
+        dest = os.path.join(models_dir, e["dest"], os.path.basename(e["file"]))
+        have = os.path.getsize(dest) if os.path.exists(dest) else 0
+        if have != want:
+            missing += want
+    staged = sum(os.path.getsize(os.path.join(dp, f))
+                 for dp, _, fs in os.walk(staging_dir) for f in fs)
+    free = shutil.disk_usage(models_dir).free
+    print(f"    still to download: {human(missing)}   free space in {models_dir}: {human(free)}")
+    if missing > free + staged:
+        print("\n" + "!" * 72)
+        print(f"!! NOT ENOUGH DISK SPACE: need {human(missing)}, only {human(free + staged)} available.")
+        print("!! Give the pod a bigger Volume Disk mounted at /workspace (80 GB recommended),")
+        print("!! or attach a Network Volume of 100 GB, then restart the pod.")
+        print("!! Or download fewer models with MODEL_GROUPS (e.g. MODEL_GROUPS=moss,joyai).")
+        print("!" * 72 + "\n", flush=True)
+        return 1
+
     failed = []
     workers = int(os.environ.get("DOWNLOAD_WORKERS", "4"))
     with ThreadPoolExecutor(max_workers=workers) as pool:
