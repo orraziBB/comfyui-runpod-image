@@ -1,0 +1,3032 @@
+{
+  "id": "f929932e-d469-4644-a36b-ac098abf0935",
+  "revision": 0,
+  "last_node_id": 34,
+  "last_link_id": 49,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        660,
+        520
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "📖 Read me",
+      "properties": {},
+      "widgets_values": [
+        "## 4 · Edit with multiple images (JoyAI-Image-Edit-Plus)\nCombine up to **6 images**: dress a character, add props, swap backgrounds, or replace one character with another.\n\n**How to use**\n1. Load your images into **Image_1 … Image_6**, in order. **Image_1 is the canvas**: the result keeps its shape and framing.\n2. Slots 3–6 start **switched off** (purple). To use one, click it and press **Ctrl+B**. Fill slots **in order** with no gaps (don't skip from Image_2 to Image_4).\n3. Write your instruction in **✏️ Instruction**, naming images as *Image_1*, *Image_2*, etc. They are converted automatically to the \"first image / second image\" wording the model was trained on.\n4. **Run**. Results go to `/workspace/output/edit`.\n\n**Examples**\n- *Put the shirt from Image_2 and the hat from Image_3 on the character in Image_1, seat them in the chair from Image_4, in front of the background from Image_5.*\n- **Character swap:** put the scene in Image_1 and your character in Image_2: *Replace the person in Image_1 with the character from Image_2. Keep the pose, lighting and background of Image_1.*\n\n**✨ Enhance prompt** (off by default) looks at all your images and rewrites the instruction more precisely. The text actually used shows in **📝 Final prompt**."
+      ],
+      "widgets_values_named": {
+        "text": "## 4 · Edit with multiple images (JoyAI-Image-Edit-Plus)\nCombine up to **6 images**: dress a character, add props, swap backgrounds, or replace one character with another.\n\n**How to use**\n1. Load your images into **Image_1 … Image_6**, in order. **Image_1 is the canvas**: the result keeps its shape and framing.\n2. Slots 3–6 start **switched off** (purple). To use one, click it and press **Ctrl+B**. Fill slots **in order** with no gaps (don't skip from Image_2 to Image_4).\n3. Write your instruction in **✏️ Instruction**, naming images as *Image_1*, *Image_2*, etc. They are converted automatically to the \"first image / second image\" wording the model was trained on.\n4. **Run**. Results go to `/workspace/output/edit`.\n\n**Examples**\n- *Put the shirt from Image_2 and the hat from Image_3 on the character in Image_1, seat them in the chair from Image_4, in front of the background from Image_5.*\n- **Character swap:** put the scene in Image_1 and your character in Image_2: *Replace the person in Image_1 with the character from Image_2. Keep the pose, lighting and background of Image_1.*\n\n**✨ Enhance prompt** (off by default) looks at all your images and rewrites the instruction more precisely. The text actually used shows in **📝 Final prompt**."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        540
+      ],
+      "size": [
+        320,
+        360
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            8,
+            25,
+            33
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Image_1 (canvas)",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Image_1.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Image_1.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        340,
+        540
+      ],
+      "size": [
+        320,
+        360
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            26,
+            34
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Image_2",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Image_2.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Image_2.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        920
+      ],
+      "size": [
+        320,
+        360
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            27,
+            35
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Image_3",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Image_3.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Image_3.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        340,
+        920
+      ],
+      "size": [
+        320,
+        360
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            28,
+            36
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Image_4",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Image_4.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Image_4.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        1300
+      ],
+      "size": [
+        320,
+        360
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            29,
+            37
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Image_5",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Image_5.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Image_5.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        340,
+        1300
+      ],
+      "size": [
+        320,
+        360
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            30,
+            38
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Image_6",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Image_6.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Image_6.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 8,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        0,
+        1690
+      ],
+      "size": [
+        660,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "✏️ Instruction",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Put the character from Image_2 into the scene of Image_1, standing in the center. Keep the character's face, hair and outfit exactly as in Image_2."
+      ],
+      "widgets_values_named": {
+        "value": "Put the character from Image_2 into the scene of Image_1, standing in the center. Keep the character's face, hair and outfit exactly as in Image_2."
+      }
+    },
+    {
+      "id": 9,
+      "type": "PrimitiveBoolean",
+      "pos": [
+        0,
+        1910
+      ],
+      "size": [
+        660,
+        60
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "BOOLEAN",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "title": "✨ Enhance prompt",
+      "properties": {
+        "Node name for S&R": "PrimitiveBoolean"
+      },
+      "widgets_values": [
+        false
+      ],
+      "widgets_values_named": {
+        "value": false
+      }
+    },
+    {
+      "id": 10,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        0,
+        1990
+      ],
+      "size": [
+        660,
+        130
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "localized_name": "upscale_method",
+          "name": "upscale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "upscale_method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "megapixels"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "resolution_steps",
+          "name": "resolution_steps",
+          "type": "INT",
+          "widget": {
+            "name": "resolution_steps"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "title": "📐 Output size (megapixels)",
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        16
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "megapixels": 1,
+        "resolution_steps": 16
+      }
+    },
+    {
+      "id": 11,
+      "type": "KSampler",
+      "pos": [
+        0,
+        2140
+      ],
+      "size": [
+        660,
+        270
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 43
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 44
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 45
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 46
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            47
+          ]
+        }
+      ],
+      "title": "🎛️ Sampler",
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        0,
+        "randomize",
+        30,
+        4,
+        "euler",
+        "normal",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 0,
+        "control_after_generate": "randomize",
+        "steps": 30,
+        "cfg": 4,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 12,
+      "type": "SaveImage",
+      "pos": [
+        700,
+        0
+      ],
+      "size": [
+        760,
+        900
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 49
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "🖼️ Result",
+      "properties": {},
+      "widgets_values": [
+        "edit/joyai-multi"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "edit/joyai-multi"
+      }
+    },
+    {
+      "id": 13,
+      "type": "RegexReplace",
+      "pos": [
+        1520,
+        40
+      ],
+      "size": [
+        400,
+        292
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 2
+        },
+        {
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "title": "Image_6 → \"the sixth image\"",
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "widgets_values": [
+        "",
+        "\\b(the\\s+)?image[\\s_-]?6\\b",
+        "the sixth image",
+        true,
+        false,
+        false,
+        0
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "regex_pattern": "\\b(the\\s+)?image[\\s_-]?6\\b",
+        "replace": "the sixth image",
+        "case_insensitive": true,
+        "multiline": false,
+        "dotall": false,
+        "count": 0
+      }
+    },
+    {
+      "id": 14,
+      "type": "RegexReplace",
+      "pos": [
+        1520,
+        100
+      ],
+      "size": [
+        400,
+        292
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 3
+        },
+        {
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "Image_5 → \"the fifth image\"",
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "widgets_values": [
+        "",
+        "\\b(the\\s+)?image[\\s_-]?5\\b",
+        "the fifth image",
+        true,
+        false,
+        false,
+        0
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "regex_pattern": "\\b(the\\s+)?image[\\s_-]?5\\b",
+        "replace": "the fifth image",
+        "case_insensitive": true,
+        "multiline": false,
+        "dotall": false,
+        "count": 0
+      }
+    },
+    {
+      "id": 15,
+      "type": "RegexReplace",
+      "pos": [
+        1520,
+        160
+      ],
+      "size": [
+        400,
+        292
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 4
+        },
+        {
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "title": "Image_4 → \"the fourth image\"",
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "widgets_values": [
+        "",
+        "\\b(the\\s+)?image[\\s_-]?4\\b",
+        "the fourth image",
+        true,
+        false,
+        false,
+        0
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "regex_pattern": "\\b(the\\s+)?image[\\s_-]?4\\b",
+        "replace": "the fourth image",
+        "case_insensitive": true,
+        "multiline": false,
+        "dotall": false,
+        "count": 0
+      }
+    },
+    {
+      "id": 16,
+      "type": "RegexReplace",
+      "pos": [
+        1520,
+        220
+      ],
+      "size": [
+        400,
+        292
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 5
+        },
+        {
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "title": "Image_3 → \"the third image\"",
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "widgets_values": [
+        "",
+        "\\b(the\\s+)?image[\\s_-]?3\\b",
+        "the third image",
+        true,
+        false,
+        false,
+        0
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "regex_pattern": "\\b(the\\s+)?image[\\s_-]?3\\b",
+        "replace": "the third image",
+        "case_insensitive": true,
+        "multiline": false,
+        "dotall": false,
+        "count": 0
+      }
+    },
+    {
+      "id": 17,
+      "type": "RegexReplace",
+      "pos": [
+        1520,
+        280
+      ],
+      "size": [
+        400,
+        292
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 6
+        },
+        {
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "title": "Image_2 → \"the second image\"",
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "widgets_values": [
+        "",
+        "\\b(the\\s+)?image[\\s_-]?2\\b",
+        "the second image",
+        true,
+        false,
+        false,
+        0
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "regex_pattern": "\\b(the\\s+)?image[\\s_-]?2\\b",
+        "replace": "the second image",
+        "case_insensitive": true,
+        "multiline": false,
+        "dotall": false,
+        "count": 0
+      }
+    },
+    {
+      "id": 18,
+      "type": "RegexReplace",
+      "pos": [
+        1520,
+        340
+      ],
+      "size": [
+        400,
+        292
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 7
+        },
+        {
+          "localized_name": "regex_pattern",
+          "name": "regex_pattern",
+          "type": "STRING",
+          "widget": {
+            "name": "regex_pattern"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "case_insensitive",
+          "name": "case_insensitive",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "case_insensitive"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiline",
+          "name": "multiline",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "multiline"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dotall",
+          "name": "dotall",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dotall"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "count"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            16,
+            19
+          ]
+        }
+      ],
+      "title": "Image_1 → \"the first image\"",
+      "properties": {
+        "Node name for S&R": "RegexReplace"
+      },
+      "widgets_values": [
+        "",
+        "\\b(the\\s+)?image[\\s_-]?1\\b",
+        "the first image",
+        true,
+        false,
+        false,
+        0
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "regex_pattern": "\\b(the\\s+)?image[\\s_-]?1\\b",
+        "replace": "the first image",
+        "case_insensitive": true,
+        "multiline": false,
+        "dotall": false,
+        "count": 0
+      }
+    },
+    {
+      "id": 19,
+      "type": "BatchImagesNode",
+      "pos": [
+        1520,
+        420
+      ],
+      "size": [
+        231.6890625,
+        146
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "localized_name": "image5",
+          "name": "images.image5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "localized_name": "image6",
+          "name": "images.image6",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "title": "All images (for the enhancer)",
+      "properties": {
+        "Node name for S&R": "BatchImagesNode"
+      }
+    },
+    {
+      "id": 20,
+      "type": "CLIPLoader",
+      "pos": [
+        1520,
+        520
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "title": "Enhancer model (Qwen3.5-9B)",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3.5_9b_w4a8_gptq.safetensors",
+        "moss_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "type": "moss_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 21,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1520,
+        660
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "title": "Enhancer instructions (system prompt)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "# Edit Prompt Enhancer\nYou are a professional edit prompt enhancer for an instruction-based image editing model. You receive the user's edit instruction and the input image(s). Write one direct, specific edit instruction for the editing model.\n\nNever refuse, never lecture, and never add, remove, soften or tone down anything the user asked for. Keep every requested element exactly, including mature or dark themes. You are only improving clarity and visual detail.\n\n## 1. General principles\n- Keep the enhanced instruction direct and specific.\n- Keep the core intention of the user's instruction unchanged; only improve clarity, rationality and visual feasibility.\n- If the instruction is vague or contradictory, make the most reasonable interpretation and add the minimal details needed.\n- Anything added or changed must fit the logic, lighting and style of the scene.\n- Say briefly what must stay unchanged (for example identity, background, framing) when it matters.\n\n## 2. Multiple input images\n- The input images are numbered in order: \"the first image\", \"the second image\", \"the third image\", and so on. Always refer to them exactly that way. Never invent images that were not supplied.\n- The first image is the canvas: the result keeps its framing unless the user says otherwise.\n- When an element comes from another image (clothing, object, person, background, style), name the image and briefly describe the element so it is unambiguous, e.g. \"the red plaid shirt from the second image\".\n- Replacing a person or character: say which image the new character comes from and that their face, hair, body shape and outfit must be kept, while pose, position, lighting and surroundings follow the image they are placed into, unless the user says otherwise.\n\n## 3. Task types\n- Add / delete / replace: if the instruction is clear, keep it and only refine the wording; if vague, add minimal but sufficient detail.\n- Text editing: put all text content in English double quotes.\n- Person (identity) edits: stress keeping the person's identity and core look consistent. Pose changes must describe the new pose concretely (body orientation, arm and leg positions, hands, head direction).\n- Style conversion: name the target style precisely.\n\n## 4. Output\nOutput only the rewritten instruction as plain text in one paragraph. No JSON, no quotes around it, no preamble or explanation."
+      ],
+      "widgets_values_named": {
+        "value": "# Edit Prompt Enhancer\nYou are a professional edit prompt enhancer for an instruction-based image editing model. You receive the user's edit instruction and the input image(s). Write one direct, specific edit instruction for the editing model.\n\nNever refuse, never lecture, and never add, remove, soften or tone down anything the user asked for. Keep every requested element exactly, including mature or dark themes. You are only improving clarity and visual detail.\n\n## 1. General principles\n- Keep the enhanced instruction direct and specific.\n- Keep the core intention of the user's instruction unchanged; only improve clarity, rationality and visual feasibility.\n- If the instruction is vague or contradictory, make the most reasonable interpretation and add the minimal details needed.\n- Anything added or changed must fit the logic, lighting and style of the scene.\n- Say briefly what must stay unchanged (for example identity, background, framing) when it matters.\n\n## 2. Multiple input images\n- The input images are numbered in order: \"the first image\", \"the second image\", \"the third image\", and so on. Always refer to them exactly that way. Never invent images that were not supplied.\n- The first image is the canvas: the result keeps its framing unless the user says otherwise.\n- When an element comes from another image (clothing, object, person, background, style), name the image and briefly describe the element so it is unambiguous, e.g. \"the red plaid shirt from the second image\".\n- Replacing a person or character: say which image the new character comes from and that their face, hair, body shape and outfit must be kept, while pose, position, lighting and surroundings follow the image they are placed into, unless the user says otherwise.\n\n## 3. Task types\n- Add / delete / replace: if the instruction is clear, keep it and only refine the wording; if vague, add minimal but sufficient detail.\n- Text editing: put all text content in English double quotes.\n- Person (identity) edits: stress keeping the person's identity and core look consistent. Pose changes must describe the new pose concretely (body orientation, arm and leg positions, hands, head direction).\n- Style conversion: name the target style precisely.\n\n## 4. Output\nOutput only the rewritten instruction as plain text in one paragraph. No JSON, no quotes around it, no preamble or explanation."
+      }
+    },
+    {
+      "id": 22,
+      "type": "TextGenerate",
+      "pos": [
+        1960,
+        520
+      ],
+      "size": [
+        400,
+        456
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 14
+        },
+        {
+          "localized_name": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "localized_name": "video",
+          "name": "video",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "system_prompt",
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "link": 15
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 16
+        },
+        {
+          "localized_name": "max_length",
+          "name": "max_length",
+          "type": "INT",
+          "widget": {
+            "name": "max_length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Sampling Mode",
+          "name": "sampling_mode",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "sampling_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "sampling_mode.temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_k",
+          "name": "sampling_mode.top_k",
+          "type": "INT",
+          "widget": {
+            "name": "sampling_mode.top_k"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_p",
+          "name": "sampling_mode.top_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.top_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_p",
+          "name": "sampling_mode.min_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.min_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "repetition_penalty",
+          "name": "sampling_mode.repetition_penalty",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.repetition_penalty"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "sampling_mode.seed",
+          "type": "INT",
+          "widget": {
+            "name": "sampling_mode.seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "presence_penalty",
+          "name": "sampling_mode.presence_penalty",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.presence_penalty"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "thinking",
+          "name": "thinking",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "thinking"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "use_default_template",
+          "name": "use_default_template",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "use_default_template"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "mtp",
+          "name": "mtp",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "mtp"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "generated_text",
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            20
+          ]
+        },
+        {
+          "localized_name": "thinking",
+          "name": "thinking",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Prompt enhancer",
+      "properties": {
+        "Node name for S&R": "TextGenerate"
+      },
+      "widgets_values": [
+        "",
+        512,
+        "on",
+        0.7,
+        64,
+        0.95,
+        0.05,
+        1.05,
+        0,
+        0,
+        false,
+        true,
+        "auto"
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "max_length": 512,
+        "sampling_mode": "on",
+        "sampling_mode.temperature": 0.7,
+        "sampling_mode.top_k": 64,
+        "sampling_mode.top_p": 0.95,
+        "sampling_mode.min_p": 0.05,
+        "sampling_mode.repetition_penalty": 1.05,
+        "sampling_mode.seed": 0,
+        "sampling_mode.presence_penalty": 0,
+        "thinking": false,
+        "use_default_template": true,
+        "mtp": "auto"
+      }
+    },
+    {
+      "id": 23,
+      "type": "ComfySwitchNode",
+      "pos": [
+        1960,
+        960
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "on_false",
+          "name": "on_false",
+          "shape": 7,
+          "type": "STRING",
+          "link": 19
+        },
+        {
+          "localized_name": "on_true",
+          "name": "on_true",
+          "shape": 7,
+          "type": "STRING",
+          "link": 20
+        },
+        {
+          "localized_name": "switch",
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "STRING",
+          "links": [
+            21,
+            39
+          ]
+        }
+      ],
+      "title": "Use enhanced prompt?",
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "widgets_values": [
+        false
+      ],
+      "widgets_values_named": {
+        "switch": false
+      }
+    },
+    {
+      "id": 24,
+      "type": "PreviewAny",
+      "pos": [
+        700,
+        920
+      ],
+      "size": [
+        760,
+        220
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "📝 Final prompt sent to the model",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 25,
+      "type": "MarkdownNote",
+      "pos": [
+        700,
+        1160
+      ],
+      "size": [
+        760,
+        110
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "⚠️ Note",
+      "properties": {},
+      "widgets_values": [
+        "**Image numbering:** the model sees the images that are switched on, in order. If you switch off Image_2 but use Image_3, then \"Image_3\" in your text would point at the wrong picture. Keep the used slots consecutive."
+      ],
+      "widgets_values_named": {
+        "text": "**Image numbering:** the model sees the images that are switched on, in order. If you switch off Image_2 but use Image_3, then \"Image_3\" in your text would point at the wrong picture. Keep the used slots consecutive."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 26,
+      "type": "UNETLoader",
+      "pos": [
+        1520,
+        1100
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "joyai_image_edit_plus_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "joyai_image_edit_plus_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 27,
+      "type": "CFGNorm",
+      "pos": [
+        1960,
+        1100
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 22
+        },
+        {
+          "localized_name": "strength",
+          "name": "strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pre_cfg",
+          "name": "pre_cfg",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "pre_cfg"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "patched_model",
+          "name": "patched_model",
+          "type": "MODEL",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CFGNorm"
+      },
+      "widgets_values": [
+        1,
+        true
+      ],
+      "widgets_values_named": {
+        "strength": 1,
+        "pre_cfg": true
+      }
+    },
+    {
+      "id": 28,
+      "type": "CLIPLoader",
+      "pos": [
+        1520,
+        1240
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            23,
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_joyimage_edit_plus_int8_convrot.safetensors",
+        "joyimage",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_joyimage_edit_plus_int8_convrot.safetensors",
+        "type": "joyimage",
+        "device": "default"
+      }
+    },
+    {
+      "id": 29,
+      "type": "VAELoader",
+      "pos": [
+        1520,
+        1380
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            24,
+            32,
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "wan_2.1_vae.safetensors"
+      }
+    },
+    {
+      "id": 30,
+      "type": "TextEncodeJoyImageEdit",
+      "pos": [
+        1520,
+        1500
+      ],
+      "size": [
+        400,
+        260
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 23
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 24
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 25
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 27
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 28
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "localized_name": "image5",
+          "name": "images.image5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 30
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "title": "Positive",
+      "properties": {
+        "Node name for S&R": "TextEncodeJoyImageEdit"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "prompt": ""
+      }
+    },
+    {
+      "id": 31,
+      "type": "TextEncodeJoyImageEdit",
+      "pos": [
+        1960,
+        1500
+      ],
+      "size": [
+        400,
+        260
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 31
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 32
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 33
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 34
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 35
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 36
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 37
+        },
+        {
+          "localized_name": "image5",
+          "name": "images.image5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 38
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Node name for S&R": "TextEncodeJoyImageEdit"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "prompt": ""
+      }
+    },
+    {
+      "id": 32,
+      "type": "GetImageSize",
+      "pos": [
+        1520,
+        1800
+      ],
+      "size": [
+        140,
+        66
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            41
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            42
+          ]
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize"
+      }
+    },
+    {
+      "id": 33,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        1960,
+        1800
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 41
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 42
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 34,
+      "type": "VAEDecode",
+      "pos": [
+        1520,
+        1960
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 47
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 48
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      8,
+      0,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      3,
+      13,
+      0,
+      14,
+      0,
+      "STRING"
+    ],
+    [
+      4,
+      14,
+      0,
+      15,
+      0,
+      "STRING"
+    ],
+    [
+      5,
+      15,
+      0,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      16,
+      0,
+      17,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      17,
+      0,
+      18,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      2,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      3,
+      0,
+      19,
+      1,
+      "IMAGE"
+    ],
+    [
+      10,
+      4,
+      0,
+      19,
+      2,
+      "IMAGE"
+    ],
+    [
+      11,
+      5,
+      0,
+      19,
+      3,
+      "IMAGE"
+    ],
+    [
+      12,
+      6,
+      0,
+      19,
+      4,
+      "IMAGE"
+    ],
+    [
+      13,
+      7,
+      0,
+      19,
+      5,
+      "IMAGE"
+    ],
+    [
+      14,
+      20,
+      0,
+      22,
+      0,
+      "CLIP"
+    ],
+    [
+      15,
+      21,
+      0,
+      22,
+      4,
+      "STRING"
+    ],
+    [
+      16,
+      18,
+      0,
+      22,
+      5,
+      "STRING"
+    ],
+    [
+      17,
+      19,
+      0,
+      22,
+      1,
+      "IMAGE"
+    ],
+    [
+      18,
+      9,
+      0,
+      23,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      19,
+      18,
+      0,
+      23,
+      0,
+      "STRING"
+    ],
+    [
+      20,
+      22,
+      0,
+      23,
+      1,
+      "STRING"
+    ],
+    [
+      21,
+      23,
+      0,
+      24,
+      0,
+      "STRING"
+    ],
+    [
+      22,
+      26,
+      0,
+      27,
+      0,
+      "MODEL"
+    ],
+    [
+      23,
+      28,
+      0,
+      30,
+      0,
+      "CLIP"
+    ],
+    [
+      24,
+      29,
+      0,
+      30,
+      1,
+      "VAE"
+    ],
+    [
+      25,
+      2,
+      0,
+      30,
+      2,
+      "IMAGE"
+    ],
+    [
+      26,
+      3,
+      0,
+      30,
+      3,
+      "IMAGE"
+    ],
+    [
+      27,
+      4,
+      0,
+      30,
+      4,
+      "IMAGE"
+    ],
+    [
+      28,
+      5,
+      0,
+      30,
+      5,
+      "IMAGE"
+    ],
+    [
+      29,
+      6,
+      0,
+      30,
+      6,
+      "IMAGE"
+    ],
+    [
+      30,
+      7,
+      0,
+      30,
+      7,
+      "IMAGE"
+    ],
+    [
+      31,
+      28,
+      0,
+      31,
+      0,
+      "CLIP"
+    ],
+    [
+      32,
+      29,
+      0,
+      31,
+      1,
+      "VAE"
+    ],
+    [
+      33,
+      2,
+      0,
+      31,
+      2,
+      "IMAGE"
+    ],
+    [
+      34,
+      3,
+      0,
+      31,
+      3,
+      "IMAGE"
+    ],
+    [
+      35,
+      4,
+      0,
+      31,
+      4,
+      "IMAGE"
+    ],
+    [
+      36,
+      5,
+      0,
+      31,
+      5,
+      "IMAGE"
+    ],
+    [
+      37,
+      6,
+      0,
+      31,
+      6,
+      "IMAGE"
+    ],
+    [
+      38,
+      7,
+      0,
+      31,
+      7,
+      "IMAGE"
+    ],
+    [
+      39,
+      23,
+      0,
+      30,
+      8,
+      "STRING"
+    ],
+    [
+      40,
+      10,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      32,
+      0,
+      33,
+      0,
+      "INT"
+    ],
+    [
+      42,
+      32,
+      1,
+      33,
+      1,
+      "INT"
+    ],
+    [
+      43,
+      27,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      44,
+      30,
+      0,
+      11,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      45,
+      31,
+      0,
+      11,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      46,
+      33,
+      0,
+      11,
+      3,
+      "LATENT"
+    ],
+    [
+      47,
+      11,
+      0,
+      34,
+      0,
+      "LATENT"
+    ],
+    [
+      48,
+      29,
+      0,
+      34,
+      1,
+      "VAE"
+    ],
+    [
+      49,
+      34,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "⚙️ Engine — nothing to change here",
+      "bounding": [
+        1500,
+        -20,
+        900,
+        2100
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9,
+      "offset": [
+        416,
+        110
+      ]
+    }
+  },
+  "version": 0.4
+}

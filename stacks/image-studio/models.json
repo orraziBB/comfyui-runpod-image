@@ -1,0 +1,17 @@
+{
+  "_comment": "Models downloaded on first boot. 'group' can be switched off with the MODEL_GROUPS env var. Revisions are pinned so every launch gets identical files.",
+  "models": [
+    {"group": "moss",   "repo": "Comfy-Org/MOSS-Image", "revision": "530a4c94f92c35ef6818b1b035a983fe9dcf5f54", "file": "diffusion_models/moss_image_sft_int8_convrot.safetensors", "dest": "diffusion_models"},
+    {"group": "moss",   "repo": "Comfy-Org/MOSS-Image", "revision": "530a4c94f92c35ef6818b1b035a983fe9dcf5f54", "file": "text_encoders/qwen3.5_9b_w4a8_gptq.safetensors", "dest": "text_encoders"},
+    {"group": "moss",   "repo": "Comfy-Org/MOSS-Image", "revision": "530a4c94f92c35ef6818b1b035a983fe9dcf5f54", "file": "vae/flux2-vae_small.safetensors", "dest": "vae"},
+    {"group": "moss",   "repo": "Comfy-Org/MOSS-Image", "revision": "530a4c94f92c35ef6818b1b035a983fe9dcf5f54", "file": "loras/moss_image_edit_lora_rank_64_bf16.safetensors", "dest": "loras"},
+
+    {"group": "zimage", "repo": "Comfy-Org/Z-Image-Turbo", "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5", "file": "split_files/diffusion_models/z_image_turbo_bf16.safetensors", "dest": "diffusion_models"},
+    {"group": "zimage", "repo": "Comfy-Org/Z-Image-Turbo", "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5", "file": "split_files/text_encoders/qwen_3_4b_fp8_mixed.safetensors", "dest": "text_encoders"},
+    {"group": "zimage", "repo": "Comfy-Org/Z-Image-Turbo", "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5", "file": "split_files/vae/ae.safetensors", "dest": "vae"},
+
+    {"group": "joyai",  "repo": "jdopensource/JoyAI-Image-Edit-Plus-ComfyUI", "revision": "d99f015974e9e5c720288e0c3c48343e71ebc036", "file": "diffusion_models/joyai_image_edit_plus_int8_convrot.safetensors", "dest": "diffusion_models"},
+    {"group": "joyai",  "repo": "jdopensource/JoyAI-Image-Edit-Plus-ComfyUI", "revision": "d99f015974e9e5c720288e0c3c48343e71ebc036", "file": "text_encoders/qwen3vl_8b_joyimage_edit_plus_int8_convrot.safetensors", "dest": "text_encoders"},
+    {"group": "joyai",  "repo": "jdopensource/JoyAI-Image-Edit-Plus-ComfyUI", "revision": "d99f015974e9e5c720288e0c3c48343e71ebc036", "file": "vae/wan_2.1_vae.safetensors", "dest": "vae"}
+  ]
+}
