@@ -6,11 +6,12 @@ Every push to `main` builds the Docker image automatically.
 1. Open the repo on GitHub → **Actions** tab → **Build images**.
 2. Wait for the green check (first build ≈ 10–15 min; later builds are faster).
 
-## Step 2 — Make the image public (GitHub, once)
-GitHub creates new container images as **private**, and RunPod can't download a private image without a password.
+## Step 2 — Check the image is public (GitHub, once)
+RunPod can only download the image without a password if it is **public**. For this repo it already is (it
+inherits the public repo's visibility). If you ever make the repo private, or the package page shows **Private**:
 
 1. On GitHub, click your profile picture → **Your profile** → **Packages** tab → **comfyui-image-studio**.
-2. **Package settings** (bottom right) → **Danger Zone** → **Change visibility** → **Public** → type the name to confirm.
+2. **Package settings** (bottom right) → **Danger Zone** → **Change visibility** → **Public**.
 
 The image only contains ComfyUI, scripts and workflows (no models, no personal data), so public is safe.
 *(Prefer private? In RunPod, go to **Settings → Container Registry Auth**, add `ghcr.io` with your GitHub username and a
