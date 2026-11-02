@@ -28,7 +28,7 @@ RunPod → **Templates** (left menu, under *Manage*) → **New Template**:
 | Container Image | `ghcr.io/orrazibb/comfyui-image-studio:latest` |
 | Container Start Command | *(leave empty)* |
 | Container Disk | `20` GB |
-| Volume Disk | `80` GB *(holds the ~58 GB of models + your outputs)* |
+| Volume Disk | `80` GB *(holds the ~58 GB of models + your outputs)*. **If your screen has no Volume Disk field**, set Container Disk to `90` GB instead; the only difference is that the models re-download whenever the pod restarts |
 | Volume Mount Path | `/workspace` |
 | Expose HTTP Ports | `8188,8888` |
 | Environment Variables | optional: `JUPYTER_PASSWORD` = a password of your choice (enables the file browser on 8888) |

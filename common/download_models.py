@@ -98,8 +98,8 @@ def main() -> int:
     if missing > free + staged:
         print("\n" + "!" * 72)
         print(f"!! NOT ENOUGH DISK SPACE: need {human(missing)}, only {human(free + staged)} available.")
-        print("!! Give the pod a bigger Volume Disk mounted at /workspace (80 GB recommended),")
-        print("!! or attach a Network Volume of 100 GB, then restart the pod.")
+        print("!! Fix: set Container Disk to 90 GB (or Volume Disk 80 GB at /workspace),")
+        print("!! or attach a Network Volume of 100 GB, then redeploy the pod.")
         print("!! Or download fewer models with MODEL_GROUPS (e.g. MODEL_GROUPS=moss,joyai).")
         print("!" * 72 + "\n", flush=True)
         return 1

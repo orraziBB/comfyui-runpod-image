@@ -16,8 +16,8 @@ nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader 2>
   || echo "WARNING: nvidia-smi not available - is this a GPU pod?"
 echo "Disk space:"; df -h "$WORKSPACE" / 2>/dev/null | sed 's/^/    /'
 if ! mountpoint -q "$WORKSPACE" 2>/dev/null; then
-  echo "WARNING: $WORKSPACE is not a separate volume - models will go on the small container disk."
-  echo "         Set Volume Disk = 80 GB with mount path /workspace (or attach a Network Volume)."
+  echo "NOTE: $WORKSPACE is on the container disk (no volume attached). That's fine if Container Disk"
+  echo "      is ~90 GB, but models re-download every time the pod restarts. A Network Volume avoids that."
 fi
 
 # ---------------------------------------------------------------- folders
